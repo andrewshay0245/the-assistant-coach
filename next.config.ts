@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: '/gamestat',
+        destination: 'https://gamestat.theassistantcoach.co',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
