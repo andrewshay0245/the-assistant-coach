@@ -28,11 +28,23 @@ export default function ContactPage() {
     setError('');
 
     try {
-      // For now, just simulate a submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
       setIsSubmitted(true);
     } catch (err) {
-      setError('Something went wrong. Please try again.');
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -98,10 +110,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
                     <a
-                      href="mailto:hello@theassistantcoach.com"
+                      href="mailto:hello@theassistantcoach.co"
                       className="text-blue-600 hover:text-blue-700"
                     >
-                      hello@theassistantcoach.com
+                      hello@theassistantcoach.co
                     </a>
                   </div>
                 </div>

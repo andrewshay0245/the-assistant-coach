@@ -3,7 +3,7 @@ interface BrowserMockupProps {
   url?: string;
 }
 
-export function BrowserMockup({ children, url = "theassistantcoach.com" }: BrowserMockupProps) {
+export function BrowserMockup({ children, url = "theassistantcoach.co" }: BrowserMockupProps) {
   return (
     <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-700 bg-gray-900">
       {/* Browser Chrome */}

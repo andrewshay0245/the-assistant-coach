@@ -266,7 +266,7 @@ export default function Home() {
 
                   {/* Mockup */}
                   <div className="flex-1 w-full max-w-xl">
-                    <BrowserMockup url={`app.theassistantcoach.com/${product.name.toLowerCase().replace(' ', '-')}`}>
+                    <BrowserMockup url={`app.theassistantcoach.co/${product.name.toLowerCase().replace(' ', '-')}`}>
                       <MockupComponent />
                     </BrowserMockup>
                   </div>
