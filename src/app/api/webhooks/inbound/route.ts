@@ -7,23 +7,34 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Resend sends inbound email data in this format
-    const { from, to, subject, html, text } = body;
+    // Log the full body to see Resend's format
+    console.log('Full webhook body:', JSON.stringify(body, null, 2));
 
-    console.log('Received inbound email:', { from, to, subject });
+    // Resend sends inbound email data - check for different possible formats
+    const { from, to, subject, html, text, data } = body;
+
+    // Resend might nest the email data in a 'data' object
+    const emailData = data || body;
+    const fromEmail = emailData.from || from;
+    const toEmail = emailData.to || to;
+    const emailSubject = emailData.subject || subject;
+    const emailHtml = emailData.html || html;
+    const emailText = emailData.text || text;
+
+    console.log('Parsed email:', { from: fromEmail, to: toEmail, subject: emailSubject });
 
     // Forward the email to andrew.shay02@gmail.com
-    const { data, error } = await resend.emails.send({
+    const { data: sendData, error } = await resend.emails.send({
       from: 'The Assistant Coach <hello@send.theassistantcoach.co>',
       to: ['andrew.shay02@gmail.com'],
-      replyTo: from,
-      subject: `[Forwarded] ${subject || 'No Subject'}`,
-      html: html || `
-        <p><strong>Forwarded email from:</strong> ${from}</p>
-        <p><strong>Original To:</strong> ${to}</p>
-        <p><strong>Subject:</strong> ${subject || 'No Subject'}</p>
+      replyTo: fromEmail,
+      subject: `[Forwarded] ${emailSubject || 'No Subject'}`,
+      html: emailHtml || `
+        <p><strong>Forwarded email from:</strong> ${fromEmail}</p>
+        <p><strong>Original To:</strong> ${toEmail}</p>
+        <p><strong>Subject:</strong> ${emailSubject || 'No Subject'}</p>
         <hr>
-        <p>${text || 'No content'}</p>
+        <p>${emailText || 'No content'}</p>
       `,
     });
 
@@ -35,8 +46,8 @@ export async function POST(request: Request) {
       );
     }
 
-    console.log('Email forwarded successfully:', data?.id);
-    return NextResponse.json({ success: true, emailId: data?.id });
+    console.log('Email forwarded successfully:', sendData?.id);
+    return NextResponse.json({ success: true, emailId: sendData?.id });
 
   } catch (error) {
     console.error('Webhook error:', error);
