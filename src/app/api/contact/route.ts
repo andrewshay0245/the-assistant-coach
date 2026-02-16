@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'The Assistant Coach <hello@theassistantcoach.co>',
+      from: 'The Assistant Coach <hello@send.theassistantcoach.co>',
       to: ['andrew.shay02@gmail.com'],
       replyTo: body.email,
       subject: `Contact Form: ${body.reason || 'General Inquiry'}`,
