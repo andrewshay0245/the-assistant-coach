@@ -18,8 +18,8 @@ export async function POST(request: Request) {
     const { email_id, from, to, subject } = body.data;
     console.log('Email received:', { email_id, from, to, subject });
 
-    // Fetch the full email content from Resend API
-    const emailResponse = await fetch(`https://api.resend.com/emails/${email_id}`, {
+    // Fetch the full email content from Resend API (received emails endpoint)
+    const emailResponse = await fetch(`https://api.resend.com/emails/receiving/${email_id}`, {
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
