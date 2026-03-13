@@ -1,114 +1,69 @@
 import Link from 'next/link';
-import { CheckCircle, X, ArrowRight, Sparkles } from 'lucide-react';
+import { CheckCircle, Clock, ArrowRight, Sparkles } from 'lucide-react';
 
 const tiers = [
   {
     name: 'Starter',
-    price: 15,
-    yearlyPrice: 150,
     description: 'Perfect for youth coaches getting started with organized practices.',
-    features: {
-      practicePlanner: 'basic',
-      shotTracker: false,
-      gameStat: false,
-      teams: 1,
-      coachesPerTeam: 2,
-      playersPerTeam: 25,
-      aiDrillsPerMonth: 5,
-      aiAnalysisPerMonth: 0,
-      pdfExportsPerMonth: 0,
-      seasonsHistory: 1,
-    },
-    cta: 'Get Started',
-    highlighted: false,
+    features: [
+      'Practice Planner (Basic)',
+      '1 Team',
+      '2 Coaches per team',
+      '25 Players per team',
+      '5 AI-generated drills/month',
+      '1 Season of history',
+    ],
   },
   {
     name: 'Pro',
-    price: 39,
-    yearlyPrice: 390,
     description: 'For serious coaches who want shot analytics and deeper insights.',
-    features: {
-      practicePlanner: 'full',
-      shotTracker: 'basic',
-      gameStat: false,
-      teams: 3,
-      coachesPerTeam: 5,
-      playersPerTeam: 50,
-      aiDrillsPerMonth: 25,
-      aiAnalysisPerMonth: 10,
-      pdfExportsPerMonth: 10,
-      seasonsHistory: 3,
-    },
-    cta: 'Get Started',
+    features: [
+      'Practice Planner (Full)',
+      'Shot Tracker (Basic)',
+      '3 Teams',
+      '5 Coaches per team',
+      '50 Players per team',
+      '25 AI-generated drills/month',
+      '10 Analysis reports/month',
+      '10 PDF exports/month',
+      '3 Seasons of history',
+    ],
     highlighted: true,
   },
   {
     name: 'Elite',
-    price: 79,
-    yearlyPrice: 790,
     description: 'Complete suite for programs that demand the best tools available.',
-    features: {
-      practicePlanner: 'full',
-      shotTracker: 'full',
-      gameStat: 'full',
-      teams: -1,
-      coachesPerTeam: 15,
-      playersPerTeam: -1,
-      aiDrillsPerMonth: -1,
-      aiAnalysisPerMonth: 50,
-      pdfExportsPerMonth: -1,
-      seasonsHistory: -1,
-    },
-    cta: 'Get Started',
-    highlighted: false,
+    features: [
+      'Practice Planner (Full)',
+      'Shot Tracker (Full)',
+      'GameStat (Full)',
+      'Unlimited Teams',
+      '15 Coaches per team',
+      'Unlimited Players',
+      'Unlimited AI drills',
+      '50 Analysis reports/month',
+      'Unlimited PDF exports',
+      'Unlimited history',
+    ],
   },
 ];
 
-const featureLabels = {
-  practicePlanner: 'Practice Planner',
-  shotTracker: 'Shot Tracker',
-  gameStat: 'StatPro',
-  teams: 'Teams',
-  coachesPerTeam: 'Coaches per team',
-  playersPerTeam: 'Players per team',
-  aiDrillsPerMonth: 'Drills / month',
-  aiAnalysisPerMonth: 'Analysis reports / month',
-  pdfExportsPerMonth: 'PDF exports / month',
-  seasonsHistory: 'Seasons of history',
-};
-
-function formatFeatureValue(key: string, value: string | number | boolean): string {
-  if (typeof value === 'boolean') return value ? 'Included' : 'Not included';
-  if (typeof value === 'string') {
-    if (value === 'basic') return 'Basic';
-    if (value === 'full') return 'Full';
-    return value;
-  }
-  if (value === -1) return 'Unlimited';
-  if (value === 0) return '—';
-  return value.toString();
-}
-
 const faqs = [
   {
-    question: 'What\'s included in each plan?',
-    answer: 'Each plan includes access to different features. Check the plan details above for specific features included in each tier.',
+    question: 'When will pricing be available?',
+    answer: 'We\'re currently in beta and working on finalizing our pricing. Join our early access list to be notified when we launch and get exclusive early adopter pricing.',
   },
   {
-    question: 'Can I change plans later?',
-    answer: 'Absolutely. Upgrade or downgrade anytime. Changes take effect at your next billing cycle.',
+    question: 'Will there be a free tier?',
+    answer: 'We\'re exploring options for a free tier with limited features. Beta users will get extended access to all features.',
   },
   {
     question: 'Do you offer team or organization discounts?',
-    answer: 'Yes, we offer discounts for clubs and organizations with multiple teams. Contact us for custom pricing.',
+    answer: 'Yes, we\'ll offer discounts for clubs and organizations with multiple teams. Contact us for more information.',
   },
   {
     question: 'What happens to my data if I cancel?',
     answer: 'Your data is yours. You can export everything before canceling, and we retain data for 90 days in case you return.',
-  },
-  {
-    question: 'Is there a contract or commitment?',
-    answer: 'No contracts. Pay monthly or save with annual billing. Cancel anytime.',
   },
 ];
 
@@ -118,31 +73,35 @@ export default function PricingPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Clock className="w-4 h-4" />
+            Pricing Coming Soon
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Simple, Transparent Pricing
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Choose the plan that fits your program.
+            We're finalizing our plans. Join the beta to lock in early adopter pricing.
           </p>
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* Pricing Cards - Greyed Out */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`bg-white rounded-2xl p-8 ${
+                className={`bg-white rounded-2xl p-8 opacity-75 ${
                   tier.highlighted
-                    ? 'ring-2 ring-blue-600 shadow-xl relative'
+                    ? 'ring-2 ring-gray-300 shadow-lg relative'
                     : 'border border-gray-200'
                 }`}
               >
                 {tier.highlighted && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-gray-400 text-white px-4 py-1 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
@@ -154,46 +113,29 @@ export default function PricingPage() {
                   </h3>
                   <p className="text-gray-600 mb-4">{tier.description}</p>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold text-gray-900">
-                      ${tier.price}
+                    <span className="text-4xl font-bold text-gray-400">
+                      $--
                     </span>
-                    <span className="text-gray-500">/month</span>
+                    <span className="text-gray-400">/month</span>
                   </div>
-                  <p className="text-sm text-gray-500 mt-2">
-                    or ${tier.yearlyPrice}/year (save ${tier.price * 12 - tier.yearlyPrice})
+                  <p className="text-sm text-gray-400 mt-2">
+                    Pricing coming soon
                   </p>
                 </div>
 
-                <Link
-                  href="/early-access"
-                  className={`block w-full text-center py-3 rounded-lg font-semibold mb-8 transition-colors ${
-                    tier.highlighted
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                  }`}
+                <div
+                  className="block w-full text-center py-3 rounded-lg font-semibold mb-8 bg-gray-200 text-gray-500 cursor-not-allowed"
                 >
-                  {tier.cta}
-                </Link>
+                  Coming Soon
+                </div>
 
-                <div className="space-y-4">
-                  {Object.entries(tier.features).map(([key, value]) => {
-                    const isIncluded = value !== false && value !== 0;
-                    return (
-                      <div key={key} className="flex items-center gap-3">
-                        {isIncluded ? (
-                          <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        ) : (
-                          <X className="w-5 h-5 text-gray-300 flex-shrink-0" />
-                        )}
-                        <span className={isIncluded ? 'text-gray-700' : 'text-gray-400'}>
-                          {featureLabels[key as keyof typeof featureLabels]}:{' '}
-                          <span className="font-medium">
-                            {formatFeatureValue(key, value)}
-                          </span>
-                        </span>
-                      </div>
-                    );
-                  })}
+                <div className="space-y-3">
+                  {tier.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      <span className="text-gray-600">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -201,52 +143,22 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Feature Comparison Table */}
-      <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Compare Plans
+      {/* Beta CTA */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Want Early Access?
           </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-4 px-4 font-semibold text-gray-900">
-                    Feature
-                  </th>
-                  {tiers.map((tier) => (
-                    <th
-                      key={tier.name}
-                      className="text-center py-4 px-4 font-semibold text-gray-900"
-                    >
-                      {tier.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {Object.entries(featureLabels).map(([key, label]) => (
-                  <tr key={key} className="border-b border-gray-100">
-                    <td className="py-4 px-4 text-gray-700">{label}</td>
-                    {tiers.map((tier) => {
-                      const value = tier.features[key as keyof typeof tier.features];
-                      const isIncluded = value !== false && value !== 0;
-                      return (
-                        <td
-                          key={tier.name}
-                          className={`text-center py-4 px-4 ${
-                            isIncluded ? 'text-gray-900' : 'text-gray-400'
-                          }`}
-                        >
-                          {formatFeatureValue(key, value)}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <p className="text-gray-600 mb-6">
+            Join our beta program to try all features free and lock in exclusive early adopter pricing when we launch.
+          </p>
+          <Link
+            href="/early-access"
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2"
+          >
+            Join the Beta
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 
@@ -277,7 +189,7 @@ export default function PricingPage() {
             Get Started Today
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            No credit card required. Cancel anytime.
+            Join the beta and start building better practices — free during early access.
           </p>
           <Link
             href="/early-access"
