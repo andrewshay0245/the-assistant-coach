@@ -15,6 +15,12 @@
  *   AWS_REGION (default: us-east-1)
  */
 
+import * as dotenv from 'dotenv';
+import * as path from 'path';
+
+// Load .env from scripts/email directory
+dotenv.config({ path: path.join(__dirname, '.env') });
+
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import * as fs from 'fs';
 import * as path from 'path';

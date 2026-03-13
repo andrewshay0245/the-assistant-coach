@@ -7,7 +7,8 @@
     "send:dry-run": "npx ts-node send-beta-invites.ts --dry-run"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.515.0"
+    "@aws-sdk/client-ses": "^3.515.0",
+    "dotenv": "^16.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
