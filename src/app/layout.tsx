@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Assistant Coach | Lacrosse Coaching Tools",
+  title: "The Assistant Coach | Coaching Tools for Every Sport",
   description: "Practice planning, shot tracking, and game statistics. Tools designed by coaches, for coaches at every level.",
-  keywords: ["lacrosse", "coaching", "practice planner", "shot tracker", "game stats", "sports analytics"],
+  keywords: ["coaching", "practice planner", "shot tracker", "game stats", "sports analytics", "football", "lacrosse"],
 };
 
 export default function RootLayout({
