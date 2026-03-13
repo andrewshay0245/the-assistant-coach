@@ -8,7 +8,8 @@ import {
   Users,
   TrendingUp,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Trophy
 } from 'lucide-react';
 import {
   BrowserMockup,
@@ -18,6 +19,15 @@ import {
 } from '@/components/browser-mockup';
 
 const products = [
+  {
+    name: 'Football Planner',
+    description: 'Complete football practice planning with position-specific drills. Built-in game week templates, load tracking, and print-ready schedules.',
+    icon: Trophy,
+    color: 'bg-green-700',
+    features: ['Game week templates', 'Position group tracking', 'Load management'],
+    href: 'https://football.theassistantcoach.co',
+    status: 'new',
+  },
   {
     name: 'Practice Planner',
     description: 'Smart drill generation and practice scheduling. Get customized drills based on your team\'s needs, skill level, and available time.',
@@ -168,7 +178,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Three Powerful Tools, One Suite
+              Four Powerful Tools, One Suite
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Everything you need to run better practices, track performance, and elevate your program.
@@ -184,8 +194,13 @@ export default function Home() {
                 <div className={`${product.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6`}>
                   <product.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                   {product.name}
+                  {product.status === 'new' && (
+                    <span className="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">
+                      NEW
+                    </span>
+                  )}
                 </h3>
                 <p className="text-gray-600 mb-6">
                   {product.description}
