@@ -17,14 +17,13 @@
 
 import * as dotenv from 'dotenv';
 import * as path from 'path';
+import * as fs from 'fs';
 
 // Load .env from scripts/email directory
 dotenv.config({ path: path.join(__dirname, '.env') });
 
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import * as fs from 'fs';
-import * as path from 'path';
-import { recordSent, hasBeenSent, getUnsentFromCSV, getCampaignStats, SentEmail } from './tracking';
+import { recordSent, hasBeenSent, getCampaignStats } from './tracking';
 
 // Configuration
 const FROM_EMAIL = 'The Assistant Coach <info@theassistantcoach.co>';
@@ -48,16 +47,45 @@ async function loadTemplate(): Promise<string> {
 function parseCSV(csvPath: string): Coach[] {
   const content = fs.readFileSync(csvPath, 'utf-8');
   const lines = content.trim().split('\n');
-  const headers = lines[0].toLowerCase().split(',').map(h => h.trim());
+  
+  // Handle quoted CSV values
+  const parseCSVLine = (line: string): string[] => {
+    const values: string[] = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (const char of line) {
+      if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        values.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    values.push(current.trim());
+    return values;
+  };
+  
+  const headers = parseCSVLine(lines[0]).map(h => h.toLowerCase().replace(/"/g, ''));
   
   return lines.slice(1).map(line => {
-    const values = line.split(',').map(v => v.trim());
-    const coach: Record<string, string> = {};
+    const values = parseCSVLine(line);
+    const raw: Record<string, string> = {};
     headers.forEach((header, i) => {
-      coach[header] = values[i] || '';
+      raw[header] = (values[i] || '').replace(/"/g, '');
     });
-    return coach as unknown as Coach;
-  });
+    
+    // Normalize field names (handle different CSV formats)
+    return {
+      email: raw.email || raw.e_mail || '',
+      first_name: raw.first_name || raw.first || raw.name || '',
+      last_name: raw.last_name || raw.last || '',
+      sport: raw.sport || raw.title || '',
+      school: raw.school || '',
+    } as Coach;
+  }).filter(c => c.email && c.email.includes('@')); // Only valid emails
 }
 
 function personalizeTemplate(template: string, coach: Coach): string {
