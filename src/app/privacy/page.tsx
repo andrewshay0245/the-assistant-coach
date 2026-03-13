@@ -69,8 +69,8 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Contact Us</h2>
             <p className="text-gray-700">
               If you have questions about this Privacy Policy, contact us at{' '}
-              <a href="mailto:hello@theassistantcoach.co" className="text-blue-600 hover:underline">
-                hello@theassistantcoach.co
+              <a href="mailto:support@theassistantcoach.co" className="text-blue-600 hover:underline">
+                support@theassistantcoach.co
               </a>
             </p>
           </section>

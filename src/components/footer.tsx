@@ -35,8 +35,8 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-2 text-gray-400 text-sm">
               <Mail className="w-4 h-4" />
-              <a href="mailto:hello@theassistantcoach.co" className="hover:text-white">
-                hello@theassistantcoach.co
+              <a href="mailto:support@theassistantcoach.co" className="hover:text-white">
+                support@theassistantcoach.co
               </a>
             </div>
           </div>

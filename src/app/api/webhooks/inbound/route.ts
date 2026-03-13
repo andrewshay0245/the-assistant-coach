@@ -36,7 +36,7 @@ export async function POST(request: Request) {
 
     // Forward the email to andrew.shay02@gmail.com
     const { data: sendData, error } = await getResend().emails.send({
-      from: 'The Assistant Coach <hello@send.theassistantcoach.co>',
+      from: 'The Assistant Coach <support@theassistantcoach.co>',
       to: ['andrew.shay02@gmail.com'],
       replyTo: from,
       subject: `[Forwarded] ${subject || 'No Subject'}`,
