@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy-load to avoid build-time errors when env var is missing
+const getResend = () => new Resend(process.env.RESEND_API_KEY || '');
 
 export async function POST(request: Request) {
   try {
@@ -34,7 +35,7 @@ export async function POST(request: Request) {
     console.log('Email content fetched:', { has_html: !!emailContent.html, has_text: !!emailContent.text });
 
     // Forward the email to andrew.shay02@gmail.com
-    const { data: sendData, error } = await resend.emails.send({
+    const { data: sendData, error } = await getResend().emails.send({
       from: 'The Assistant Coach <hello@send.theassistantcoach.co>',
       to: ['andrew.shay02@gmail.com'],
       replyTo: from,

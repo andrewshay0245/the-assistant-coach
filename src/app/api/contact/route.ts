@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy-load to avoid build-time errors when env var is missing
+const getResend = () => new Resend(process.env.RESEND_API_KEY || '');
 
 interface ContactFormData {
   name: string;
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
     }
 
     // Send email via Resend
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: 'The Assistant Coach <hello@send.theassistantcoach.co>',
       to: ['andrew.shay02@gmail.com'],
       replyTo: body.email,
