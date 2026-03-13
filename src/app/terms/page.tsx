@@ -68,27 +68,51 @@ export default function TermsPage() {
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Intellectual Property</h2>
+            <p className="text-gray-700 mb-4">
+              The Assistant Coach apps, including all content, features, functionality, designs, user interface, underlying code, algorithms, and documentation, are owned exclusively by The Assistant Coach and are protected by copyright, trademark, and other intellectual property laws.
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>By using our services, you agree that you will NOT:</strong>
+            </p>
+            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+              <li>Copy, reproduce, or duplicate any portion of the service or its features</li>
+              <li>Reverse engineer, decompile, or disassemble the software</li>
+              <li>Create derivative works based on the service</li>
+              <li>Use the service to develop a competing product</li>
+              <li>Remove or alter any proprietary notices or labels</li>
+              <li>Share, resell, or redistribute access to the service</li>
+            </ul>
             <p className="text-gray-700">
-              The Assistant Coach apps, including all content, features, and functionality, are owned by The Assistant Coach and are protected by copyright and other intellectual property laws.
+              Violation of these terms may result in immediate termination of your account and legal action.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Limitation of Liability</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Your Content</h2>
+            <p className="text-gray-700 mb-4">
+              You retain ownership of the data you create (practice plans, player rosters, statistics, etc.). By using our service, you grant us a limited license to store, process, and display your content solely to provide the service to you.
+            </p>
+            <p className="text-gray-700">
+              We will not sell your data to third parties or use it for purposes unrelated to providing the service.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Limitation of Liability</h2>
             <p className="text-gray-700">
               The Assistant Coach is provided &quot;as is&quot; without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the service.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Changes to Terms</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Changes to Terms</h2>
             <p className="text-gray-700">
               We may update these Terms from time to time. We will notify you of significant changes by email or through the service.
             </p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Contact Us</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Contact Us</h2>
             <p className="text-gray-700">
               If you have questions about these Terms, contact us at{' '}
               <a href="mailto:hello@theassistantcoach.co" className="text-blue-600 hover:underline">
