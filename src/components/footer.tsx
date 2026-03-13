@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Clipboard, Mail, MapPin } from 'lucide-react';
+import { Clipboard, Mail } from 'lucide-react';
 
 const footerLinks = {
   product: [

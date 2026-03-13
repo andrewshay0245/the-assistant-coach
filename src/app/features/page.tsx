@@ -7,13 +7,10 @@ import {
   Zap,
   FileText,
   Users,
-  Calendar,
   PieChart,
   TrendingUp,
-  Award,
   Timer,
   ArrowRight,
-  CheckCircle
 } from 'lucide-react';
 
 const products = [

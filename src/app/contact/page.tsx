@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Mail, MessageSquare, CheckCircle } from 'lucide-react';
 
 const contactReasons = [
@@ -63,12 +64,12 @@ export default function ContactPage() {
           <p className="text-gray-600 mb-6">
             Thanks for reaching out. We&apos;ll get back to you within 24-48 hours.
           </p>
-          <a
+          <Link
             href="/"
             className="text-blue-600 font-semibold hover:text-blue-700"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -110,10 +111,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
                     <a
-                      href="mailto:info@theassistantcoach.co"
+                      href="mailto:hello@theassistantcoach.co"
                       className="text-blue-600 hover:text-blue-700"
                     >
-                      info@theassistantcoach.co
+                      hello@theassistantcoach.co
                     </a>
                   </div>
                 </div>

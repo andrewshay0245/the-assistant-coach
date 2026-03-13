@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { CheckCircle, Sparkles, Users, Trophy, Zap } from 'lucide-react';
 
 const benefits = [
@@ -96,12 +97,12 @@ export default function EarlyAccessPage() {
             Thanks for joining our early access program. We&apos;ll be in touch soon with
             exclusive updates and your invitation to try The Assistant Coach.
           </p>
-          <a
+          <Link
             href="/"
             className="text-blue-600 font-semibold hover:text-blue-700"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     );

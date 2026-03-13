@@ -98,12 +98,6 @@ const testimonials = [
   },
 ];
 
-const colorClasses = {
-  blue: 'text-blue-600 bg-blue-100',
-  emerald: 'text-emerald-600 bg-emerald-100',
-  amber: 'text-amber-600 bg-amber-100',
-};
-
 export default function Home() {
   return (
     <div className="min-h-screen">
