@@ -15,12 +15,7 @@ import {
 const FootballIcon = ({ className }: { className?: string }) => (
   <span className={className} style={{ fontSize: '1.75rem', lineHeight: 1 }}>🏈</span>
 );
-import {
-  BrowserMockup,
-  PracticePlannerMockup,
-  ShotTrackerMockup,
-  GameStatMockup
-} from '@/components/browser-mockup';
+// Mockups removed - using live product links instead
 
 const products = [
   {
@@ -59,25 +54,6 @@ const products = [
     features: ['xG model', 'Heat maps', 'Player analytics'],
     href: 'https://shottracker.theassistantcoach.co',
     status: 'coming',
-  },
-];
-
-const productShowcase = [
-  {
-    name: 'Shot Tracker',
-    tagline: 'See Every Shot, Understand Every Pattern',
-    description: 'Track shot locations with precision and get instant analytics. Our xG model helps you understand shot quality and identify scoring opportunities.',
-    features: ['Precise shot location tracking', 'Expected Goals (xG) model', 'Player-by-player breakdowns', 'Exportable PDF reports'],
-    mockup: ShotTrackerMockup,
-    color: 'emerald',
-  },
-  {
-    name: 'StatPro',
-    tagline: 'Track Stats Anywhere — Practice or Game',
-    description: 'Capture every stat that matters, whether in practice or during games. Simple tap-to-record interface makes it easy for anyone on your staff to contribute.',
-    features: ['Practice & game tracking', 'Comprehensive stat categories', 'Head-to-head comparisons', 'Instant stat summaries'],
-    mockup: GameStatMockup,
-    color: 'amber',
   },
 ];
 
@@ -152,10 +128,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/early-access"
+                href="#products"
                 className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors inline-flex items-center justify-center gap-2"
               >
-                Get Early Access
+                Get Started Free
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
@@ -171,7 +147,7 @@ export default function Home() {
       </section>
 
       {/* Products Overview */}
-      <section className="py-24 bg-white">
+      <section id="products" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -230,70 +206,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Product Showcase with Mockups */}
-      <section className="py-24 bg-gray-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              See It In Action
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Intuitive interfaces designed for the sideline, not the office.
-            </p>
-          </div>
-
-          <div className="space-y-32">
-            {productShowcase.map((product, index) => {
-              const isEven = index % 2 === 0;
-              const MockupComponent = product.mockup;
-
-              return (
-                <div
-                  key={product.name}
-                  className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
-                >
-                  {/* Text Content */}
-                  <div className="flex-1">
-                    <h3 className="text-3xl font-bold text-white mb-2">
-                      {product.name}
-                    </h3>
-                    <p className={`text-lg font-medium mb-4 ${
-                      product.color === 'blue' ? 'text-blue-400' :
-                      product.color === 'emerald' ? 'text-emerald-400' :
-                      'text-amber-400'
-                    }`}>
-                      {product.tagline}
-                    </p>
-                    <p className="text-gray-400 text-lg mb-6">
-                      {product.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {product.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-3 text-gray-300">
-                          <CheckCircle className={`w-5 h-5 ${
-                            product.color === 'blue' ? 'text-blue-400' :
-                            product.color === 'emerald' ? 'text-emerald-400' :
-                            'text-amber-400'
-                          }`} />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Mockup */}
-                  <div className="flex-1 w-full max-w-xl">
-                    <BrowserMockup url={`app.theassistantcoach.co/${product.name.toLowerCase().replace(' ', '-')}`}>
-                      <MockupComponent />
-                    </BrowserMockup>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -366,13 +278,13 @@ export default function Home() {
             Ready to Elevate Your Coaching?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join our early access program and be the first to experience the future of lacrosse coaching tools.
+            Try any of our tools free and see the difference for yourself.
           </p>
           <Link
-            href="/early-access"
+            href="#products"
             className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
           >
-            Get Early Access
+            Get Started Free
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
