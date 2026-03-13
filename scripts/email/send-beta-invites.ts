@@ -18,11 +18,13 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import * as fs from 'fs';
 import * as path from 'path';
+import { recordSent, hasBeenSent, getUnsentFromCSV, getCampaignStats, SentEmail } from './tracking';
 
 // Configuration
 const FROM_EMAIL = 'The Assistant Coach <info@theassistantcoach.co>';
 const SUBJECT = "Coach {{FIRST_NAME}}, you're invited to try The Assistant Coach";
 const RATE_LIMIT_MS = 100; // 10 emails per second (SES limit is 14/sec)
+const CAMPAIGN_NAME = 'beta-invite-mar-2026';
 
 interface Coach {
   email: string;
@@ -71,6 +73,12 @@ async function sendEmail(
   htmlBody: string,
   dryRun: boolean
 ): Promise<{ success: boolean; error?: string }> {
+  // Skip if already sent
+  if (hasBeenSent(coach.email)) {
+    console.log(`⏭️  Skipped (already sent): ${coach.email}`);
+    return { success: true };
+  }
+
   if (dryRun) {
     console.log(`[DRY RUN] Would send to: ${coach.email} (${coach.first_name})`);
     return { success: true };
@@ -96,7 +104,20 @@ async function sendEmail(
       },
     });
 
-    await ses.send(command);
+    const result = await ses.send(command);
+    
+    // Record the sent email
+    recordSent({
+      email: coach.email,
+      first_name: coach.first_name,
+      last_name: coach.last_name,
+      sport: coach.sport,
+      school: coach.school,
+      sent_at: new Date().toISOString(),
+      campaign: CAMPAIGN_NAME,
+      message_id: result.MessageId,
+    });
+    
     console.log(`✓ Sent to: ${coach.email}`);
     return { success: true };
   } catch (error) {
@@ -190,6 +211,11 @@ async function main() {
     const failuresPath = path.join(__dirname, `failures-${Date.now()}.json`);
     fs.writeFileSync(failuresPath, JSON.stringify(failures, null, 2));
     console.log(`\nFailures saved to: ${failuresPath}`);
+  }
+
+  // Show overall stats
+  if (!dryRun) {
+    getCampaignStats();
   }
 }
 
