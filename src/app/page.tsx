@@ -35,10 +35,10 @@ const products = [
   },
   {
     name: 'Practice Planner',
-    description: 'Smart drill generation and practice scheduling. Get customized drills based on your team\'s needs, skill level, and available time.',
+    description: 'Plan and organize lacrosse practices with ease. Build practice schedules and keep your team on track.',
     icon: Clipboard,
     color: 'bg-blue-600',
-    features: ['Randomized drill generator', 'Practice templates', 'Skill-based progressions'],
+    features: ['Practice scheduling', 'Drill organization', 'Print-ready plans'],
     href: 'https://planner.theassistantcoach.co',
     status: 'live',
   },
@@ -63,14 +63,6 @@ const products = [
 ];
 
 const productShowcase = [
-  {
-    name: 'Practice Planner',
-    tagline: 'Design Better Practices in Minutes',
-    description: 'Generate randomized drills based on field size, player count, and coaching constraints. Get detailed coaching instructions tailored to your philosophy.',
-    features: ['Randomized drill generation', 'Customizable constraints', 'Detailed coaching instructions', 'Multiple field configurations'],
-    mockup: PracticePlannerMockup,
-    color: 'blue',
-  },
   {
     name: 'Shot Tracker',
     tagline: 'See Every Shot, Understand Every Pattern',
