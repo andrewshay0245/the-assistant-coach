@@ -8,9 +8,13 @@ import {
   Users,
   TrendingUp,
   CheckCircle,
-  ArrowRight,
-  Trophy
+  ArrowRight
 } from 'lucide-react';
+
+// Football emoji icon component
+const FootballIcon = ({ className }: { className?: string }) => (
+  <span className={className} style={{ fontSize: '1.75rem', lineHeight: 1 }}>🏈</span>
+);
 import {
   BrowserMockup,
   PracticePlannerMockup,
@@ -20,13 +24,14 @@ import {
 
 const products = [
   {
-    name: 'Football Planner',
-    description: 'Complete football practice planning with position-specific drills. Built-in game week templates, load tracking, and print-ready schedules.',
-    icon: Trophy,
+    name: 'Football Practice Planner',
+    description: 'Football is different. So is our football practice planner. Position-specific drills, game week templates, load tracking, and print-ready schedules.',
+    icon: FootballIcon,
     color: 'bg-green-700',
     features: ['Game week templates', 'Position group tracking', 'Load management'],
     href: 'https://football.theassistantcoach.co',
     status: 'new',
+    isEmoji: true,
   },
   {
     name: 'Practice Planner',
@@ -38,15 +43,6 @@ const products = [
     status: 'live',
   },
   {
-    name: 'Shot Tracker',
-    description: 'Track every shot with precision. Analyze shot patterns, calculate expected goals (xG), and identify scoring opportunities.',
-    icon: Target,
-    color: 'bg-emerald-600',
-    features: ['xG model', 'Heat maps', 'Player analytics'],
-    href: 'https://shottracker.theassistantcoach.co',
-    status: 'live',
-  },
-  {
     name: 'StatPro',
     description: 'Comprehensive statistics for practice and games. Track everything from ground balls to turnovers with easy-to-use interfaces.',
     icon: BarChart3,
@@ -54,6 +50,15 @@ const products = [
     features: ['Live tracking', 'Team comparisons', 'PDF reports'],
     href: 'https://gamestat.theassistantcoach.co',
     status: 'live',
+  },
+  {
+    name: 'Shot Tracker',
+    description: 'Track every shot with precision. Analyze shot patterns, calculate expected goals (xG), and identify scoring opportunities.',
+    icon: Target,
+    color: 'bg-emerald-600',
+    features: ['xG model', 'Heat maps', 'Player analytics'],
+    href: 'https://shottracker.theassistantcoach.co',
+    status: 'coming',
   },
 ];
 
@@ -185,20 +190,29 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {products.map((product) => (
               <div
                 key={product.name}
                 className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-shadow flex flex-col"
               >
                 <div className={`${product.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6`}>
-                  <product.icon className="w-7 h-7 text-white" />
+                  {'isEmoji' in product && product.isEmoji ? (
+                    <product.icon />
+                  ) : (
+                    <product.icon className="w-7 h-7 text-white" />
+                  )}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                   {product.name}
                   {product.status === 'new' && (
                     <span className="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">
                       NEW
+                    </span>
+                  )}
+                  {product.status === 'coming' && (
+                    <span className="bg-gray-400 text-white text-xs px-2 py-0.5 rounded-full font-bold">
+                      COMING SOON
                     </span>
                   )}
                 </h3>
