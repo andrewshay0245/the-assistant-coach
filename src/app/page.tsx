@@ -102,17 +102,17 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
+      <section className="relative overflow-hidden bg-[#0a1628] text-white">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-700/50 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
               Lacrosse Coaching Tools
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Your{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-emerald-300">
+              <span className="text-blue-300">
                 Coaching Assistant
               </span>
             </h1>
@@ -137,7 +137,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+        {/* Clean line transition to white */}
       </section>
 
       {/* Products Overview */}
@@ -266,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-24 bg-[#0a1628] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Elevate Your Coaching?
