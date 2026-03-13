@@ -31,7 +31,7 @@ export function Footer() {
               <span className="font-bold text-xl">The Assistant Coach</span>
             </Link>
             <p className="text-gray-400 text-sm mb-4">
-              Smart tools to help lacrosse coaches at every level elevate their game.
+              Smart tools to help coaches at every level elevate their game.
             </p>
             <div className="flex items-center gap-2 text-gray-400 text-sm">
               <Mail className="w-4 h-4" />

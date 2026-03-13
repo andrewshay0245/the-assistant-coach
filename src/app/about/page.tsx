@@ -47,7 +47,7 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Coaching lacrosse is rewarding, but it&apos;s also demanding. Between practice
+              Coaching is rewarding, but it&apos;s also demanding. Between practice
               planning, game prep, stat tracking, and player development, coaches spend
               countless hours on administrative tasks.
             </p>
@@ -103,9 +103,9 @@ export default function AboutPage() {
               remembered everything.
             </p>
             <p className="mt-4">
-              We started building tools for ourselves — a drill generator that understood
-              coaching philosophy, a shot tracker that actually calculated meaningful
-              statistics, and a stat system that didn&apos;t require a PhD to operate.
+              We started building tools for ourselves — a practice planner that made
+              organization easy, a load tracker to monitor how hard we were pushing our teams,
+              and a stat system that didn&apos;t require a PhD to operate.
             </p>
             <p className="mt-4">
               Other coaches noticed. They wanted in. And so The Assistant Coach was born —
@@ -113,7 +113,7 @@ export default function AboutPage() {
               and your players deserve the best preparation possible.
             </p>
             <p className="mt-4">
-              Today, we&apos;re building the future of lacrosse coaching technology. Whether
+              Today, we&apos;re building the future of coaching technology. Whether
               you&apos;re running your first youth practice or preparing for a championship
               game, we&apos;re here to help you succeed.
             </p>

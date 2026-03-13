@@ -30,7 +30,7 @@ const products = [
   },
   {
     name: 'Practice Planner',
-    description: 'Plan and organize lacrosse practices with ease. Build practice schedules and keep your team on track.',
+    description: 'Plan and organize practices with ease. Build practice schedules and keep your team on track.',
     icon: Clipboard,
     color: 'bg-blue-600',
     features: ['Practice scheduling', 'Drill organization', 'Print-ready plans'],
@@ -39,7 +39,7 @@ const products = [
   },
   {
     name: 'GameStat',
-    description: 'Comprehensive statistics for practice and games. Track everything from ground balls to turnovers with easy-to-use interfaces.',
+    description: 'Comprehensive statistics for practice and games. Track every stat that matters for your sport with easy-to-use interfaces.',
     icon: BarChart3,
     color: 'bg-amber-600',
     features: ['Live tracking', 'Team comparisons', 'PDF reports'],
@@ -108,7 +108,7 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
-              Lacrosse Coaching Tools
+              Coaching Tools for Every Sport
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Your{' '}

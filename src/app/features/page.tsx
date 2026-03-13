@@ -23,8 +23,8 @@ const products = [
     color: 'blue',
     features: [
       {
-        title: 'Drill Generator',
-        description: 'Get randomized drills based on field size, player count, and coaching constraints.',
+        title: 'Load Tracker',
+        description: 'Monitor how hard you\'re pushing your team. Track intensity across practices to prevent burnout and optimize performance.',
         icon: Sparkles,
       },
       {
@@ -78,7 +78,7 @@ const products = [
     id: 'gamestat',
     name: 'GameStat',
     tagline: 'Complete Practice & Game Statistics',
-    description: 'Comprehensive real-time stat tracking for practice and games. From face-offs to clears, ground balls to turnovers — capture every stat that matters.',
+    description: 'Comprehensive real-time stat tracking for practice and games. Track every stat that matters with an intuitive, easy-to-use interface designed for live games.',
     icon: BarChart3,
     color: 'amber',
     features: [
