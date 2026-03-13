@@ -38,7 +38,7 @@ const products = [
     status: 'live',
   },
   {
-    name: 'StatPro',
+    name: 'GameStat',
     description: 'Comprehensive statistics for practice and games. Track everything from ground balls to turnovers with easy-to-use interfaces.',
     icon: BarChart3,
     color: 'bg-amber-600',

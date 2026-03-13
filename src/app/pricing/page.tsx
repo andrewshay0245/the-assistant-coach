@@ -36,7 +36,7 @@ const tiers = [
     features: [
       'Practice Planner (Full)',
       'Shot Tracker (Full)',
-      'GameStat (Full)',
+      'GameStat',
       'Unlimited Teams',
       '15 Coaches per team',
       'Unlimited Players',

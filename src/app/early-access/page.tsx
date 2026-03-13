@@ -223,7 +223,7 @@ export default function EarlyAccessPage() {
                     Products you&apos;re interested in
                   </label>
                   <div className="space-y-2">
-                    {['Practice Planner', 'Shot Tracker', 'StatPro'].map((product) => (
+                    {['Practice Planner', 'Shot Tracker', 'GameStat'].map((product) => (
                       <label key={product} className="flex items-center gap-3 cursor-pointer">
                         <input
                           type="checkbox"

@@ -76,7 +76,7 @@ const products = [
   },
   {
     id: 'gamestat',
-    name: 'StatPro',
+    name: 'GameStat',
     tagline: 'Complete Practice & Game Statistics',
     description: 'Comprehensive real-time stat tracking for practice and games. From face-offs to clears, ground balls to turnovers — capture every stat that matters.',
     icon: BarChart3,
