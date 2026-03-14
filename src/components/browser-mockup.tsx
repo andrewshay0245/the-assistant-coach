@@ -156,8 +156,8 @@ export function GameStatMockup() {
       <div className="space-y-2 mb-4">
         {[
           { label: 'Shots', home: 18, away: 14 },
-          { label: 'Ground Balls', home: 12, away: 9 },
-          { label: 'Face-offs', home: '6/10', away: '4/10' },
+          { label: 'Rebounds', home: 12, away: 9 },
+          { label: 'Possessions', home: '6/10', away: '4/10' },
           { label: 'Turnovers', home: 4, away: 7 },
         ].map((stat) => (
           <div key={stat.label} className="flex items-center bg-gray-800 rounded-lg px-4 py-2">
