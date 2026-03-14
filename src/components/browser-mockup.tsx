@@ -136,7 +136,7 @@ export function GameStatMockup() {
     <div className="p-6 min-h-[300px]">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <div className="text-white font-semibold">Yale vs Cornell</div>
+          <div className="text-white font-semibold">Home vs Away</div>
           <div className="text-xs text-gray-500">Q2 • 8:42</div>
         </div>
         <div className="flex items-center gap-4">
